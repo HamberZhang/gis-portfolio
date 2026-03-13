@@ -1,0 +1,145 @@
+.navbar {
+    background-color: #c5050c;
+    border-color: #b0040a;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ebd122;
+    text-decoration: none;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.navbar-toggler {
+    color: #fff;
+    border-color: #fff;
+    background-color: #c5050c;
+    border-radius: 4px;
+    border: 1px solid;
+    fill: #fff;
+    font-size: 16px;
+    position: relative;
+    margin-right: 10px;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    background-color: #ebd122;
+    color: #242424;
+    fill: #242424;
+    border-color: #fff;
+}
+
+.jumbotron {
+    background-image: url('../assets/School.jpg');
+    background-size: cover;
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    color: white;
+    border-radius: 0px;
+    padding: 0; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.jumbotron h2 {
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.jumbotron p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.card {
+    background-color: #fff;
+    border-color: #cccccc;
+    border-width: 1px;
+    width: 100%;
+}
+
+.card:hover {
+    border-color: #ebd122;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.resume h3 {
+    font-weight: bold;
+}
+
+hr {
+    border-color: #eee;
+    border-width: 2px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+a {
+    color: #c5050c;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b0040a;
+    text-decoration: underline;
+}
+
+.container{
+    padding: 25px 0;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #ffffff;
+    color: #242424;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .jumbotron h2 {
+        font-size: 28px;
+        line-height: 1.4;
+    }
+
+    .jumbotron p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+    
+    .jumbotron {
+        height: 300px; 
+        padding: 0;
+    }
+}

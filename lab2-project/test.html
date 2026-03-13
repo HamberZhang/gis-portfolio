@@ -1,0 +1,68 @@
+<div class="center-wide">
+  <div class="slideshow-container">
+    <div class="slide active">
+      <img src="assets/slide1.png" alt="slide1">
+      <p class="caption">Local · 新加坡邻里</p>
+    </div>
+    <div class="slide">
+      <img src="assets/slide2.png" alt="slide2">
+      <p class="caption">City · 新加坡全岛</p>
+    </div>
+    <div class="slide">
+      <img src="assets/slide3.png" alt="slide3">
+      <p class="caption">Region · 新马区域</p>
+    </div>
+    <div class="slide">
+      <img src="assets/slide4.png" alt="slide4">
+      <p class="caption">Global · 世界视图</p>
+    </div>
+
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+
+    <div class="slideshow-dots">
+      <span class="dot" id="1"></span>
+      <span class="dot" id="2"></span>
+      <span class="dot" id="3"></span>
+      <span class="dot" id="4"></span>
+    </div>
+  </div>
+</div>
+
+<style>
+.slideshow-container{position:relative; max-width:1100px; margin:0 auto;}
+.slide{display:none;}
+.slide.active{display:block;}
+.slide img{width:100%; height:auto; display:block;}
+.caption{position:absolute; left:0; right:0; bottom:12px;
+  color:#fff; background:rgba(0,0,0,.45); padding:10px 14px; margin:0;}
+.prev,.next{cursor:pointer; position:absolute; top:50%; transform:translateY(-50%);
+  font-size:28px; font-weight:700; padding:8px 12px; user-select:none;}
+.prev{left:8px;} .next{right:8px;}
+.slideshow-dots{display:flex; gap:8px; justify-content:center; padding:10px 0;}
+.dot{width:10px; height:10px; border-radius:50%; background:#bbb; display:inline-block;}
+.dot.active{background:#333;}
+</style>
+
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dots   = Array.from(document.querySelectorAll('.dot'));
+  const prev   = document.querySelector('.prev');
+  const next   = document.querySelector('.next');
+  let i = 0;
+
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+  }
+  show(0); // 初始化显示第一张
+
+  prev.addEventListener('click', ()=> show(i-1));
+  next.addEventListener('click', ()=> show(i+1));
+  dots.forEach((d,idx)=> d.addEventListener('click', ()=> show(idx)));
+})();
+</script>

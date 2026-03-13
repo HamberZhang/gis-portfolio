@@ -1,0 +1,369 @@
+ <!DOCTYPE html>
+
+<html lang="zh">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Blue Flow — From Wave to Mist</title>
+
+
+
+  <link rel="stylesheet" href="../css/style.css">
+
+
+ <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+ <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+
+</head>
+
+
+
+
+<body>
+
+  <!-- Hero -->
+
+  <header class="hero" role="banner" aria-label="Blue Flow Hero">
+
+    <h1 class="title">Blue Flow</h1>
+    <p class="author">Hongbo Zhang </p>
+  </header>
+
+
+
+  <!-- Intro  -->
+
+  <section class="intro" aria-label="Introduction">
+
+    <p>
+
+      Blue is visible in our daily lives, including the sky, ocean, jeans, cornflowers,
+
+      and even the eggs of mockingbirds. In artistic creation, blue embodies artists'
+
+      unique understanding of the relationship between humans and nature.
+
+    </p>
+
+  </section>
+
+
+
+  <main role="main">
+
+    <!-- Inspiration -->
+
+    <section class="inspo" aria-label="Inspiration Board">
+
+      <!-- 1. 神奈川冲浪里 -->
+
+      <article class="inspo-item">
+
+        <figure class="inspo-media">
+
+          <img src="../assets/greatwave.jpg" alt="The Great Wave off Kanagawa"
+
+               loading="lazy" decoding="async">
+
+        </figure>
+
+        <div class="inspo-text">
+
+          <h3>The Energy of Waves (The Great Wave off Kanagawa)</h3>
+
+          <p>Using rounded corners and rhythmic lines to depict the dynamic of waves; the roads and water systems adopt flowing curves and dashed lines, emphasizing “flow”.</p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 2. 星空 -->
+
+      <article class="inspo-item flip">
+
+        <figure class="inspo-media">
+
+          <img src="../assets/starry.jpg" alt="Starry Night"
+
+               loading="lazy" decoding="async">
+
+        </figure>
+
+        <div class="inspo-text">
+
+          <h3>The Breath of Night (Starry Sky)</h3>
+
+          <p>The label uses halo and slight blurring to simulate the soft and bright layers of starlight; deep blue contrasts with warm yellow dots of light.</p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 3. 塞纳河的晨雾 -->
+
+      <article class="inspo-item">
+
+        <figure class="inspo-media">
+
+          <img src="../assets/seine_mist.jpg" alt="Morning Mist on the Seine"
+
+               loading="lazy" decoding="async">
+
+        </figure>
+
+        <div class="inspo-text">
+
+          <h3>The Tranquility of Mist (Morning Mist of the Seine River)</h3>
+
+          <p>Background and water use a light blue-gray gradient; terrain shadows reduce contrast, creating a soft and misty feel with white space.</p>
+
+        </div>
+
+      </article>
+
+    </section>
+
+    <div class="note-split">
+    <div class="note-text">
+    <h3 class="no-margin">Design note</h3>
+    <p>
+      In the map, black cats represent cities. The symbol is adapted from
+      the vertical signature/cartouche in Hokusai's <em>The Great Wave off Kanagawa</em>.
+    </p>
+  </div>
+
+    <figure class="note-media cartouche-look">
+    <img src="../assets/symbol.png" alt="Signature cartouche from Great Wave">
+    <figcaption>Source: Hokusai, cartouche detail</figcaption>
+    </figure>
+  </div>
+
+
+    <section class="four-head" id="four-head">
+    <h2>From Inspiration to Map</h2>
+    <p>“The blue language covers the whole world, and we can feel its presence in ports, glaciers, lakes, and other places in every corner”</p>
+    </section>
+
+    
+  <section class="sidecar-scope">
+  <div class="scroll-container">
+    <div class="background-item">
+      <img src="../assets/background1.png" data-slide="1" class="active">
+      <img src="../assets/background2.png" data-slide="2" >
+      <img src="../assets/background3.png" data-slide="3" >
+      <img src="../assets/background4.png" data-slide="4" >
+    </div>
+
+    <div class="foreground-item">
+      <div class="row">
+        <div class="center background-transparent rounded">
+          <p class="no-margin"><strong>San Francisco Bay</strong> </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center background-transparent rounded">
+          <p class="no-margin"><strong>Hong Kong & New Territories</strong> </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center background-transparent rounded">
+          <p class="no-margin"><strong>Bergen, Norway</strong> </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="center background-transparent rounded">
+          <p class="no-margin"><strong>Gulf of Aqaba, Red Sea</strong> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// @ts-nocheck
+(() => {
+  const root = document.querySelector('.sidecar-scope');
+  if (!root) return;
+
+  const imgs = Array.from(root.querySelectorAll('.background-item img'));
+  const rows = Array.from(root.querySelectorAll('.foreground-item .row'));
+
+  function setActive(ix){
+    imgs.forEach(el => el.classList.remove('active'));
+    imgs[ix]?.classList.add('active');
+  }
+
+  function updateActive(){
+    const mid = window.innerHeight / 2;
+    let bestIx = 0, bestDist = Infinity;
+    rows.forEach((r, i) => {
+      const rect = r.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const dist = Math.abs(center - mid);
+      if (dist < bestDist) { bestDist = dist; bestIx = i; }
+    });
+    setActive(bestIx);
+  }
+
+  updateActive();
+  window.addEventListener('scroll', updateActive, { passive: true });
+  window.addEventListener('resize', updateActive);
+})();
+</script>
+
+
+<!-- Singapore • From Local to Global -->
+<div class="row">
+  <div class="center-wide">
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+
+      <!-- Slide 1: Local -->
+      <div class="slide">
+        <img src="../assets/slide1.png" alt="Singapore neighborhood view">
+        <p class="caption">Local View</p>
+      </div>
+
+      <!-- Slide 2: City -->
+      <div class="slide">
+        <img src="../assets/slide2.png" alt="Singapore island-wide city view">
+        <p class="caption">City View</p>
+      </div>
+
+      <!-- Slide 3: Region -->
+      <div class="slide">
+        <img src="../assets/slide3.png" alt="Singapore within the Malay Peninsula region">
+        <p class="caption">Regional View</p>
+      </div>
+
+      <!-- Slide 4: Global -->
+      <div class="slide">
+        <img src="../assets/slide4.png" alt="Singapore in the world context">
+        <p class="caption">Global View</p>
+      </div>
+
+      <!-- Prev / Next buttons (only one each) -->
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+
+      <!-- Indicator dots -->
+      <div class="slideshow-dots">
+        <span class="dot" id="1"></span>
+        <span class="dot" id="2"></span>
+        <span class="dot" id="3"></span>
+        <span class="dot" id="4"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+
+
+.slideshow-container{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;          
+  background: #f3f3f3;           
+}
+
+
+@supports not (aspect-ratio: 1) {
+  .slideshow-container{
+    height: 56.25vw;           
+    max-height: 640px;          
+  }
+}
+
+.slideshow-container .slide{
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+.slideshow-container .slide.active{ display:block; }
+
+.slideshow-container .slide img{
+  width: 100%;
+  height: 100%;                  
+  object-fit: cover;             
+  display: block;
+}
+
+
+
+.slideshow-container .caption{
+  position: absolute;
+  left: 0; right: 0; bottom: 10px;
+  margin: 0;
+  padding: 10px 14px;
+  color: #fff;
+  background: rgba(0,0,0,.45);
+}
+
+
+.slideshow-container .prev,
+.slideshow-container .next{
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  font-size: 28px; font-weight: 700;
+  padding: 8px 12px; user-select: none; cursor: pointer;
+}
+.slideshow-container .prev{ left: 8px; }
+.slideshow-container .next{ right: 8px; }
+
+
+.slideshow-dots{
+  display: flex; gap: 8px; justify-content: center;
+  padding: 10px 0;
+}
+.slideshow-dots .dot{
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #bbb; display: inline-block;
+}
+.slideshow-dots .dot.active{ background: #333; }
+</style>
+
+<script>
+(function(){
+  const slides = [...document.querySelectorAll('.slideshow-container .slide')];
+  const dots   = [...document.querySelectorAll('.slideshow-dots .dot')];
+  const prev   = document.querySelector('.slideshow-container .prev');
+  const next   = document.querySelector('.slideshow-container .next');
+  let i = 0;
+
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
+  }
+  show(0);                         
+
+  prev?.addEventListener('click', ()=> show(i-1));
+  next?.addEventListener('click', ()=> show(i+1));
+  dots.forEach((d, idx)=> d.addEventListener('click', ()=> show(idx)));
+})();
+</script>
+
+<div class="row no-margin">
+     <div class="center">
+          <div class="credits">
+               <p><b>Credits:</b></p>
+               <p>Map created with Mapbox Studio</p>
+               <p>Data from openstreetmap</p>
+          </div>
+     </div>
+</div>
+
+</body>
+
+</html>
