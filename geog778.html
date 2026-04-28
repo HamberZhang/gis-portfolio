@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="WUI, GIS, cartography, dashboard, Hongbo Zhang"/>
+    <title>WUI Comparison Dashboard | Hongbo Zhang</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-default">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Hongbo Zhang</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" /></svg>
+                <span class="menu"> Menu</span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume.html">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> 
+
+    <div class="container py-5">
+        <h1>Wildland–Urban Interface Comparison Dashboard</h1>
+        <p class="lead">GEOG 778 Practicum in GIS Development</p>
+
+        <img src="assets/wui-dashboard-home.png" alt="WUI Comparison Dashboard screenshot" class="img-fluid rounded shadow-sm my-4">
+
+        <h2>Project Overview</h2>
+        <p>
+            This project develops an interactive dashboard for comparing three Wildland–Urban Interface
+            mapping approaches: WUI-P, WUI-S, and WUI-Z. The goal is to help users understand where
+            different WUI definitions agree or disagree and why those differences matter for wildfire
+            planning, mitigation, and spatial decision support in Wisconsin.
+        </p>
+
+        <h2>Audience and Purpose</h2>
+        <p>
+            The intended audience includes wildfire mitigation staff, planners, GIS analysts, and decision
+            makers who need to evaluate WUI conditions across Wisconsin counties. The dashboard supports
+            scenario-based exploration by allowing users to compare WUI definitions at the county and tract
+            level.
+        </p>
+
+        <h2>Dashboard Features</h2>
+        <ul>
+            <li>County and census tract selection</li>
+            <li>Comparison of WUI-P, WUI-S, and WUI-Z values</li>
+            <li>Interactive map display of WUI class polygons</li>
+            <li>Tract-level proxy summary values and map polygon summaries</li>
+            <li>Visual explanation of definition agreement and disagreement</li>
+        </ul>
+
+        <h2>Data and Methods</h2>
+        <p>
+            The project integrates land cover, address points, building footprint data, census geography,
+            and WUI reference data. WUI-P uses address-point based information, WUI-S uses building
+            footprint based surface mapping, and WUI-Z uses a census-based zonal classification. These
+            methods are compared to show how different assumptions affect WUI mapping results.
+        </p>
+
+        <h2>Tools and Skills</h2>
+        <ul>
+            <li>Python, GeoPandas, Pandas, and spatial data processing</li>
+            <li>Streamlit dashboard development</li>
+            <li>Folium interactive web mapping</li>
+            <li>Altair chart design</li>
+            <li>Raster and vector GIS workflow design</li>
+            <li>Cartographic communication and user-centered design</li>
+        </ul>
+
+        <h2>Reflection</h2>
+        <p>
+            Through this project, I learned how to manage a full GIS development workflow from problem
+            definition and data preparation to dashboard design and final communication. One important
+            lesson was that a practical GIS tool needs to balance technical complexity with clear visual
+            communication. I also learned how to adjust project scope, test the workflow on smaller areas,
+            and gradually improve the interface based on feedback.
+        </p>
+
+        <p class="mt-4">
+            <a href="index.html" class="btn btn-primary">Back to Portfolio</a>
+        </p>
+    </div>
+
+    <script type="text/javascript" src="lib/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+</body>
+
+</html>
